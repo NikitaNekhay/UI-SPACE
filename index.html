@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+
+<head>
+
+</head>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>USpace – Мероприятия</title>
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3480e0">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        /* Общие стили */
+        body {
+            margin: 0;
+            font-family: 'Helvetica', sans-serif;
+            background-color: #f0f0f0;
+            color: #212121;
+        }
+
+        /* Фоновое изображение с эффектом блюра */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQZIGEca9IaS9kpQmv-JXb6vvdUqh3imT6wA&s') no-repeat center center/cover;
+            filter: blur(8px);
+            z-index: -2;
+            animation: moveBackground 60s infinite linear;
+        }
+
+        /* Хедер */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: transparent;
+            border-bottom: 2px solid #fff;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+
+        header img {
+            width: 150px;
+        }
+
+        /* Кнопки в центре экрана */
+        .center-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 100px;
+            /* Расстояние от верхней части экрана */
+        }
+
+        .nav-button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background: linear-gradient(45deg, #b989cb, #c544f8);
+            cursor: pointer;
+            transition: background 0.5s ease, transform 0.2s ease-in-out;
+        }
+
+        .nav-button:hover {
+            background: linear-gradient(45deg, #9b59b6, #b907ff);
+            transform: scale(1.05);
+        }
+
+        /* Стили для списка мероприятий */
+        .events-list {
+            margin-top: 40px;
+            padding: 20px;
+            /* background-color: #fff; */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            gap: 10px;
+        }
+
+        .events-list h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 20px;
+
+        }
+
+        .event {
+            display: flex;
+            justify-content: space-between;
+            border-radius: 20px;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 5px solid #ececec;
+            transition: background-color 0.3s ease;
+            margin-bottom: 20px;
+            background-color: #f6f6f6;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+        }
+
+        .event:hover {
+            background-color: #f6f6f6;
+        }
+
+        .event .event-title {
+            font-weight: bold;
+            color: #212121;
+        }
+
+        .event .event-time {
+            color: #9b59b6;
+        }
+
+        .event .register-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 25px;
+            background-color: #9b59b6;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .event .register-button:hover {
+            background-color: #b907ff;
+        }
+
+        .event .arrow-icon {
+            margin-left: 10px;
+            width: 15px;
+            height: 15px;
+            fill: #fff;
+        }
+
+        /* Анимации */
+        @keyframes moveBackground {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .center-buttons {
+                margin-top: 20px;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <div class="overlay"></div>
+    <header>
+        <img src="logo.png" alt="Логотип">
+    </header>
+
+    <!-- Кнопки в центре экрана -->
+    <div class="center-buttons">
+        <button class="nav-button" onclick="window.location.href='form.html'">Записаться</button>
+        <button class="nav-button">Мероприятия</button>
+    </div>
+
+    <!-- Список мероприятий -->
+    <div class="events-list">
+        <h2>Список мероприятий</h2>
+        <div class="event">
+            <div>
+                <div class="event-title">Мероприятие 1</div>
+                <div class="event-time">12:00 - 14:00</div>
+            </div>
+            <button class="register-button" onclick="window.location.href='form.html'">
+                Записаться
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10 17l5-5-5-5v10z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="event">
+            <div>
+                <div class="event-title">Мероприятие 2</div>
+                <div class="event-time">15:00 - 17:00</div>
+            </div>
+            <button class="register-button" onclick="window.location.href='form.html'">
+                Записаться
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10 17l5-5-5-5v10z"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="event">
+            <div>
+                <div class="event-title">Мероприятие 3</div>
+                <div class="event-time">18:00 - 20:00</div>
+            </div>
+            <button class="register-button" onclick="window.location.href='form.html'">
+                Записаться
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10 17l5-5-5-5v10z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>
